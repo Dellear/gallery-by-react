@@ -15,23 +15,24 @@ module.exports = {
   debug: true,
   devtool: 'eval',
   output: {
-    path: path.join(__dirname, '/../dist/assets'),
-    filename: 'app.js',
+    path: path.join(__dirname, '/../dist'),
+    filename: 'assets/js/[name].js',
     publicPath: defaultSettings.publicPath
   },
   devServer: {
-    contentBase: './src/',
+    // contentBase: './src/',
     historyApiFallback: true,
     hot: true,
     port: defaultSettings.port,
     publicPath: defaultSettings.publicPath,
     noInfo: false,
+    overlay: true,
     stats: {
       colors: true,
-      modules: false,
-      children: false,
-      chunks: false,
-      chunkModules: false
+      // modules: false,
+      // children: false,
+      chunks: false
+      // chunkModules: false
     }
   },
   resolve: {

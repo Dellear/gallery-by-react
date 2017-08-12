@@ -26,15 +26,15 @@ function getDefaultModules() {
     loaders: [
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        loader: 'style-loader!css-loader!autoprefixer-loader?{browsers:["> 1%", "last 5 version", "Firefox 15"]}'
       },
       {
         test: /\.sass/,
-        loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded&indentedSyntax'
+        loader: 'style-loader!css-loader!autoprefixer-loader?{browsers:["> 1%", "last 5 version", "Firefox 15"]}!sass-loader?outputStyle=expanded&indentedSyntax'
       },
       {
         test: /\.scss/,
-        loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded'
+        loader: 'style-loader!css-loader!autoprefixer-loader?{browsers:["> 1%", "last 5 version", "Firefox 15"]}!sass-loader?outputStyle=expanded'
       },
       {
         test: /\.less/,
@@ -45,8 +45,12 @@ function getDefaultModules() {
         loader: 'style-loader!css-loader!stylus-loader'
       },
       {
+        test: /\.json$/,
+        loader: 'json-loader'
+      },
+      {
         test: /\.(png|jpg|gif|woff|woff2)$/,
-        loader: 'url-loader?limit=8192'
+        loader: 'url-loader?limit=8192&name=assets/images/[name]-[hash:8].[ext]'
       },
       {
         test: /\.(mp4|ogg|svg)$/,
@@ -58,7 +62,7 @@ function getDefaultModules() {
 
 module.exports = {
   srcPath: srcPath,
-  publicPath: '/assets/',
+  publicPath: '/',
   port: dfltPort,
   getDefaultModules: getDefaultModules
 };
