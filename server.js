@@ -14,7 +14,7 @@ const open = require('open');
 let isInitialCompilation = true;
 
 const compiler = webpack(config);
-
+config.port = 8000;
 new WebpackDevServer(compiler, config.devServer)
 .listen(config.port, 'localhost', (err) => {
   if (err) {
@@ -33,7 +33,7 @@ compiler.plugin('done', () => {
       console.log('  Open in inline mode:\t\x1b[33m%s\x1b[0m', 'http://localhost:' + config.port + '/\n');
       console.log('  \x1b[33mHMR is active\x1b[0m. The bundle will automatically rebuild and live-update on changes.')
 
-      open('http://127.0.0.1:' + defaultSettings.port,'chrome')
+      open('http://127.0.0.1:' + defaultSettings.port,'chrome');
     }, 350);
   }
   isInitialCompilation = false;

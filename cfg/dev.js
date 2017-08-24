@@ -35,7 +35,7 @@ let config = Object.assign({}, baseConfig, {
         // any required modules inside node_modules are extracted to vendor
         return (
           module.resource &&
-          /\.js$/.test(module.resource) &&
+          // /\.js$/.test(module.resource) &&
           module.resource.indexOf(
             path.resolve(__dirname, '../node_modules')
           ) === 0
