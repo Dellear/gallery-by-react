@@ -95,7 +95,8 @@ class AppComponent extends React.Component {
     this.props.constant.vPosRange.x = [halfStageW - imgW, halfImgW];
 
 
-    this.rearrange(getRangeRandom(0, imageDatas.length - 1));
+    // this.rearrange(getRangeRandom(0, imageDatas.length - 1));
+    this.rearrange(0);
   }
 
   /**
@@ -230,10 +231,11 @@ class AppComponent extends React.Component {
         }
       }
 
-      imgFigures.push(<ImgFigure key={value.imageUrl} data={value} ref={`imgFigure${index}`}
+      imgFigures.push(<ImgFigure key={index} data={value} ref={`imgFigure${index}`}
         arrange={this.state.imgsArrangeArr[index]} inverse={this.inverse(index)} center={this.center(index)} />);
 
-      controllerUnits.push(<ControllerUnit key={index} />);
+      controllerUnits.push(<ControllerUnit key={index} arrange={this.state.imgsArrangeArr[index]}
+        inverse={this.inverse(index)} center={this.center(index)}  />);
     }.bind(this));
 
     return (

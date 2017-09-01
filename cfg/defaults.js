@@ -49,11 +49,15 @@ function getDefaultModules() {
         loader: 'json-loader'
       },
       {
-        test: /\.(png|jpg|gif|woff|woff2)$/,
-        loader: 'url-loader?limit=81920&name=assets/images/[name]-[hash:8].[ext]'
+        test: /\.(png|jpg|gif)$/,
+        loader: 'url-loader?limit=8192&name=assets/images/[name]-[hash:8].[ext]'
       },
       {
-        test: /\.(mp4|ogg|svg)$/,
+        test: /\.(woff|woff2|ttf|svg|eot)$/,
+        loader: 'url-loader?limit=500&name=assets/fonts/[name]-[hash:8].[ext]'
+      },
+      {
+        test: /\.(mp4|ogg)$/,
         loader: 'file-loader'
       }
     ]
@@ -62,7 +66,7 @@ function getDefaultModules() {
 
 module.exports = {
   srcPath: srcPath,
-  publicPath: '/',
+  publicPath: '',
   port: dfltPort,
   getDefaultModules: getDefaultModules
 };
