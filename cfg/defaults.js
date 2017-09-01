@@ -50,7 +50,7 @@ function getDefaultModules() {
       },
       {
         test: /\.(png|jpg|gif|woff|woff2)$/,
-        loader: 'url-loader?limit=8192&name=assets/images/[name]-[hash:8].[ext]'
+        loader: 'url-loader?limit=81920&name=assets/images/[name]-[hash:8].[ext]'
       },
       {
         test: /\.(mp4|ogg|svg)$/,
