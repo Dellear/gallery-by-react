@@ -6,6 +6,8 @@ Gallery by react
 ## Live demo
 [https://dellear.github.io/gallery-by-react/](https://dellear.github.io/gallery-by-react/)
 
+[http://Deller.coding.me/gallery-by-react](http://Deller.coding.me/gallery-by-react)
+
 ## Local develop
 
 ```bash
