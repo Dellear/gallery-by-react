@@ -1,9 +1,10 @@
 import React from 'react';
 
 class ImgFigure extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
 
 
   /**
@@ -42,11 +43,11 @@ class ImgFigure extends React.Component {
       imgFigureClassName += this.props.arrange.isInverse ? ' is-inverse' : '';
 
     return (
-      <figure className={imgFigureClassName} style={styleObj} onClick={this.handleClick.bind(this)}>
+      <figure className={imgFigureClassName} style={styleObj} onClick={this.handleClick}>
         <img src={this.props.data.imageUrl} alt={this.props.data.title}/>
         <figcaption>
           <h2 className="img-title">{this.props.data.title}</h2>
-          <div className="img-back" onClick={this.handleClick.bind(this)}>
+          <div className="img-back" onClick={this.handleClick}>
             <p>{this.props.data.desc}</p>
           </div>
         </figcaption>
