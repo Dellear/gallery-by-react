@@ -9,6 +9,7 @@
 const path = require('path');
 const srcPath = path.join(__dirname, '/../src');
 const dfltPort = 8000;
+const LIMITURL = 20000;
 
 /**
  * Get the default modules object for webpack
@@ -50,11 +51,11 @@ function getDefaultModules() {
       },
       {
         test: /\.(png|jpg|gif)$/,
-        loader: 'url-loader?limit=8192&name=assets/images/[name]-[hash:8].[ext]'
+        loader: `url-loader?limit=${LIMITURL}&name=assets/images/[name]-[hash:8].[ext]`
       },
       {
         test: /\.(woff|woff2|ttf|svg|eot)$/,
-        loader: 'url-loader?limit=500&name=assets/fonts/[name]-[hash:8].[ext]'
+        loader: `url-loader?limit=${LIMITURL}&name=assets/fonts/[name]-[hash:8].[ext]`
       },
       {
         test: /\.(mp4|ogg)$/,
